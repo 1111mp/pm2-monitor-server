@@ -1,0 +1,13 @@
+.npmignore
+.gitignore
+
+# rollup
+rollup.config.ts
+
+yarn.lock
+
+# Logs
+logs
+*.log
+
+tsconfig.json

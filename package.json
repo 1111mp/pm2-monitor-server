@@ -1,0 +1,62 @@
+{
+  "name": "pm2-monitor-server",
+  "version": "1.0.0",
+  "description": "PM2 Monitor Server",
+  "main": "lib/app.js",
+  "files": [
+    "lib",
+    "template.html"
+  ],
+  "scripts": {
+    "build": "rollup --config rollup.config.ts --configPlugin typescript"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7",
+    "pm2": "^5.3.0",
+    "pmx": "^1.6.7"
+  },
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^11.1.5",
+    "@types/node": "^20.10.2",
+    "@types/nodemailer": "^6.4.14",
+    "rollup": "^4.6.1",
+    "rollup-plugin-clear": "^2.0.7",
+    "typescript": "^5.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1111mp/pm2-monitor-server"
+  },
+  "config": {
+    "name": "pm2-monitor-server",
+    "url": "https://github.com/1111mp/pm2-monitor-server",
+    "apps": [],
+    "events": [
+      "exit"
+    ],
+    "smtp": {
+      "host": "smtp.office365.com",
+      "port": 587,
+      "secure": false,
+      "user": "",
+      "password": ""
+    },
+    "mailer": {
+      "to": "",
+      "replyTo": "",
+      "withLogs": true
+    },
+    "mailDisabled": false
+  },
+  "apps": [
+    {
+      "merge_logs": true,
+      "max_memory_restart": "200M",
+      "script": "lib/app.js",
+      "time": true,
+      "log_date_format": "YYYY-MM-DD HH:mm:ss"
+    }
+  ],
+  "author": "The1111mp@outlook.com",
+  "license": "MIT"
+}
