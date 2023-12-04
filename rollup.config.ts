@@ -5,7 +5,13 @@ import type { RollupOptions } from "rollup";
 
 const config: RollupOptions[] = [
   {
-    input: ["src/app.ts", "src/monitor.ts", "src/mailer.ts", "src/utils.ts"],
+    input: [
+      "src/app.ts",
+      "src/monitor.ts",
+      "src/scheduler.ts",
+      "src/mailer.ts",
+      "src/utils.ts",
+    ],
     external: [/node_modules/],
     output: {
       dir: "lib",

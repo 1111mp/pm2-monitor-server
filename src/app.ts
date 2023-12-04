@@ -1,5 +1,5 @@
 import * as pmx from "pmx";
-import { Monitor, type MonitorConfig } from "./monitor";
+import { Monitor, type Config } from "./monitor";
 
 import { exit } from "./utils";
 
@@ -19,7 +19,7 @@ pmx.initModule(
       },
     },
   },
-  (err, config: MonitorConfig) => {
+  (err, config: Config) => {
     exit(err);
 
     console.log(config);

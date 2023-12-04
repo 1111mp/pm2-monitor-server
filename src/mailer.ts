@@ -26,7 +26,7 @@ export interface MailerConfig {
   mailDisabled: boolean;
 }
 
-interface MailerMessage {
+export interface MailerMessage {
   subject: string;
   body: string;
   priority: "high" | "normal" | "low";
@@ -38,7 +38,7 @@ export class Mailer {
   private template: string = `<div><!-- body --></div><hr /><small><a href="%url%">%name%</a> <i><!-- timeStamp --></i></small>`;
 
   constructor(private config: MailerConfig) {
-    const { smtp } = config;
+    const { smtp, mailer } = config;
 
     !smtp && (this.config.mailDisabled = true);
 
@@ -50,6 +50,10 @@ export class Mailer {
 
     if (!smtp.port) {
       throw new Error("The port option of the SMTP server must be provided");
+    }
+
+    if (!mailer.to) {
+      throw new Error("No recipients defined");
     }
 
     try {
